@@ -52,6 +52,7 @@ class DocsCommand extends Command
         } else {
             $command = 'api:generate';
             $options = [
+                '--output' => config('deploydocs.output'),
                 '--routePrefix' => config('deploydocs.routes'),
                 '--actAsUserId' => config('deploydocs.user_id')
             ];
