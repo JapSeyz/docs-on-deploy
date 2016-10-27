@@ -1,0 +1,28 @@
+{
+    "name": "japseyz/private-documentation",
+    "description": "Generate private documentation",
+    "keywords": [
+        "JapSeyz",
+        "Documentation"
+    ],
+    "homepage": "https://github.com/JapSeyz/private_documentation_generation",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JapSeyz",
+            "email": "JapSeyz@JapSeyz.com",
+            "homepage": "https://japseyz.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JapSeyz\\PrivateDocs\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php" : "^7.0",
+        "mpociot/laravel-apidoc-generator": "^1.6"
+    }
+}
