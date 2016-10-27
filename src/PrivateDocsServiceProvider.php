@@ -24,6 +24,8 @@ class PrivateDocsServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
+
         $this->app['privatedocs.generate'] = $this->app->share(function () {
             return new PrivateDocsCommand();
         });
@@ -32,7 +34,7 @@ class PrivateDocsServiceProvider extends ServiceProvider
             'privatedocs.generate',
         ]);
 
-        Route::get('/dev/docs', ['middleware' => config('privatedocs.middleware')], function () {
+        \Route::get('/dev/docs', ['middleware' => config('privatedocs.middleware')], function () {
             return \File::get(resource_path() . '/docs/index.html');
         });
 
