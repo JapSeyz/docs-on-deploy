@@ -24,7 +24,7 @@ class PrivateDocsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
+        $this->app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
 
         $this->app['privatedocs.generate'] = $this->app->share(function () {
             return new PrivateDocsCommand();

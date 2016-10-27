@@ -39,11 +39,13 @@ class PrivateDocsCommand extends Command
      */
     public function handle()
     {
-        $command = 'apidoc:generate --output="resources/views/docs"
-                    --routePrefix='.config('privatedocs.routes').'
-                    --actAsUserId='.config('privatedocs.user_id');
+        $command = 'api:generate --output="resources/views/docs"';
+        $options = [
+            '--routePrefix' => config('privatedocs.routes'),
+            '--actAsUserId' => config('privatedocs.user_id')
+        ];
 
-        \Artisan::call($command);
+        \Artisan::call($command, $options);
     }
 
 }
