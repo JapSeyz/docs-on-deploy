@@ -1,11 +1,11 @@
 {
-    "name": "japseyz/private-documentation",
-    "description": "Generate private documentation",
+    "name": "japseyz/docs-on-deploy",
+    "description": "Generate apidocs on deploy",
     "keywords": [
         "JapSeyz",
         "Documentation"
     ],
-    "homepage": "https://github.com/JapSeyz/private_documentation_generation",
+    "homepage": "https://github.com/JapSeyz/docs-on-deploy",
     "license": "MIT",
     "authors": [
         {
@@ -17,7 +17,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "JapSeyz\\PrivateDocs\\": "src/"
+            "JapSeyz\\Docs\\": "src/"
         }
     },
     "minimum-stability": "dev",
