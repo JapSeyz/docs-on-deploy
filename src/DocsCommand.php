@@ -54,7 +54,8 @@ class DocsCommand extends Command
             $options = [
                 '--output' => config('deploydocs.output'),
                 '--routePrefix' => config('deploydocs.routes'),
-                '--actAsUserId' => config('deploydocs.user_id')
+                '--actAsUserId' => config('deploydocs.user_id'),
+                '--bindings' => config('deploydocs.bindings'),
             ];
 
             \Artisan::call($command, $options);
