@@ -40,14 +40,9 @@ class DocsCommand extends Command
     public function handle()
     {
         if(!config('deploydocs.enabled')){
-            if(is_dir(public_path('docs'))){
-                $dir = public_path('docs');
-
-                $files = array_diff(scandir($dir), array('.','..'));
-                foreach ($files as $file) {
-                    is_dir("$dir/$file") ? delTree("$dir/$file") : unlink("$dir/$file");
-                }
-                return rmdir($dir);
+            $dir = config('deploydocs.output');
+            if(is_dir(base_path($dir))){
+                $this->delTree($dir);
             }
         } else {
             $command = 'api:generate';
@@ -60,5 +55,20 @@ class DocsCommand extends Command
 
             \Artisan::call($command, $options);
         }
+    }
+
+    /**
+     * Recursively delete a directory
+     *
+     * @param string $dir
+     *
+     * @return bool
+     */
+    private function delTree($dir){
+        $files = array_diff(scandir($dir), array('.','..'));
+        foreach ($files as $file) {
+            is_dir("$dir/$file") ? $this->delTree("$dir/$file") : unlink("$dir/$file");
+        }
+        return rmdir($dir);
     }
 }
