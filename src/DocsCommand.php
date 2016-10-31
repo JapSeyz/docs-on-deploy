@@ -49,9 +49,15 @@ class DocsCommand extends Command
             $options = [
                 '--output' => config('deploydocs.output'),
                 '--routePrefix' => config('deploydocs.routes'),
-                '--actAsUserId' => config('deploydocs.user_id'),
-                '--bindings' => config('deploydocs.bindings'),
             ];
+            
+            if(config('deploydocs.user_id')){
+                $options['--actAsUserId'] = config('deploydocs.user_id');
+            }
+            
+            if(config('deploydocs.bindings')){
+                $options['--bindings'] = config('deploydocs.bindings');
+            }
 
             \Artisan::call($command, $options);
         }
